@@ -1,4 +1,4 @@
-import { RequestHandler, Request, Response } from "express";
+import { RequestHandler, Request, Response, NextFunction } from "express";
 import Patient from "./patients.model";
 import { IRequestId, IRequestPatient } from "./patients.types";
 
@@ -13,7 +13,9 @@ export const GetPatientById = async ({params: {id: patientId}}: IRequestId, res:
     res.send(patient)
 }
 
-export const CreateNewPatient = async ({body: newPatient}: IRequestPatient, res: Response) => {
+export const CreateNewPatient = async ({body: newPatient}: IRequestPatient, res: Response, next: NextFunction) => {
+    console.log(newPatient)
     const patientFromDb = await Patient.create(newPatient)
     res.status(201).send(patientFromDb)
+    next()
 } 
