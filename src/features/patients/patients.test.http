@@ -2,8 +2,8 @@ POST http://localhost:4000/api/patient
 Content-Type: application/json
 
 {
-    "LastName": "Ivanov",
-    "Name": "Ivan",
-    "Patronymic": "Ivanovich",
+    "LastName": "Petrov",
+    "Name": "Petr",
+    "Patronymic": "Petrovich",
     "Diagnosis": "covid-19"    
 } 
